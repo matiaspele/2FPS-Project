@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
+import { useForm } from "react-hook-form";
 import wasd from "../assets/wasd.png";
 import "../css/login.css";
 
 const LoginScreen = () => {
+const{
+  register,
+  handleSubmit,
+  formState: {errors},
+}= useForm()
+
+  const {logIn, logOut} = useContext(UserContext);
   const navigate = useNavigate();
 
-  const [formValue, setFormValue] = useState({ correo: "", password: "" });
+  // useEffect(()=> {
+  //   localStorage.removeItem("user");
+  //   logOut()
+  // }, [])
 
-  const handleChange = (e) =>
-    setFormValue({ ...formValue, [e.target.name]: e.target.value });
   const admin = [
     {
       id: 1,
@@ -27,14 +37,14 @@ const LoginScreen = () => {
     },
   ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formValue.correo && formValue.password) {
+  const guardarUsuario = (data) => {
+    if (data.correo && formVadataue.password) {
       const usuarioEncontrado = admin.find(
         (u) =>
-          u.correo === formValue.correo && u.password === formValue.password
+          u.correo === data.correo && u.password === data.password
       );
       if (usuarioEncontrado) {
+        logIn(data.correo, formValue.name)
         navigate("/");
       } else {
         alert("Usuario o contraseña incorrectos");
@@ -54,27 +64,37 @@ const LoginScreen = () => {
         <div className="form-section text-white px-3 px-lg-5 ">
           <h1 className="text-center mb-4">Iniciar sesión</h1>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(guardarUsuario)}>
             <div className="mb-3">
               <input
                 type="email"
                 className="form-control correo-icon input text-white"
-                name="correo"
                 placeholder="Correo electrónico"
-                value={formValue.correo}
-                onChange={handleChange}
+                {...register('correo', {
+                  required:"El correo el obligatorio",
+                  pattern: {
+                    value:/^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "No es un correo válido"
+                  },
+                })}
               />
+              {errors.correo && <p className="text-danger">{errors.correo.message}</p>}
             </div>
 
             <div className="mb-3">
               <input
                 type="password"
                 className="form-control password-icon input text-white"
-                name="password"
                 placeholder="Contraseña"
-                value={formValue.password}
-                onChange={handleChange}
+                {...register('password',{
+                  required: "La contraseña es obligatoria",
+                  // pattern: {
+                  //   value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/,
+                  //   message: "No es una contraseña válida"
+                  // }
+                })}
               />
+              {errors.password && <p className="text-danger">{errors.password.message}</p>}
             </div>
 
             <div className="mb-3 d-grid">
