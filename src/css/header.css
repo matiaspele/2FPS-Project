@@ -1,0 +1,58 @@
+.contenedor{
+    position: relative;
+}
+
+
+.triangulo {
+    position: absolute;
+    inset: 0;
+    background: #041A86;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    z-index: -1;
+}
+
+.titulo{
+    color: #FFF5F5;
+    position: absolute;
+    left: 600px;
+    top: 150px;
+    font-size: 250px;
+    font-weight: bold;
+}
+
+.titulo-borde{
+    background-color:transparent;
+      text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    position: absolute;
+    left: 595px;
+    top: 155px;
+    font-size: 250px;
+    font-weight: bold;
+    z-index: -1;
+}
+
+.subtitulo{
+        position: absolute;
+    left: 640px;
+    top: 420px;
+}
+
+.imagen {
+    position: absolute;
+    left: 100px;
+    width: 500px;
+    z-index: 1;
+
+}
+
+.sombra {
+    position: absolute;
+    top: 650px;
+    left: 250px;
+    width: 260px;
+    height: 50px;
+    background: #1F1F20;
+    filter: blur(15px);
+    border-radius: 50%;
+    z-index: 1;
+}
