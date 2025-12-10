@@ -1,0 +1,84 @@
+.fondo {
+  background: linear-gradient(29deg, #0D0D51 50%, black 50%);
+}
+.container-transparente{
+    background-color: rgba(255, 255, 255, 0.123);
+    border-radius: 40px;
+}
+.password-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-lock-fill' viewBox='0 0 16 16'%3E%3Cpath d='M2 8a2 2 0 0 1 2-2h.5V4a3.5 3.5 0 1 1 7 0v2H12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8zm4.5-2h3V4a1.5 1.5 0 1 0-3 0v2z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position: 10px center;
+  padding-left: 40px;
+}
+
+.correo-icon{
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'><path d='M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555z'/><path d='M0 4.697v7.104l5.803-3.558L0 4.697z'/><path d='M6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757z'/><path d='M16 4.697l-5.803 3.546L16 11.801V4.697z'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position: 10px center;
+  padding-left: 40px;
+}
+
+.logo-img {
+  width: 120px;
+}
+
+.input{
+    background-color: #011341;
+    border-radius: 10px;
+    border: 1px solid #2D64E3;
+
+    transition: border-width 0.2s ease, border-color 0.2s ease;
+}
+
+.input:hover,
+.input:focus {
+  border-width: 2px;              /* se hace más grueso */
+  border-color: #5a8bff;  
+  background-color: #011341 !important; 
+  color: white;       /* opcional: color más brillante */
+}
+
+
+.form-control::placeholder {
+  color: white !important;
+  opacity: 1;
+}
+
+.boton-iniciar{
+    background-color: #041A86;
+    border: 1px solid #2D64E3;
+    color: white;
+
+    transition: border-width 0.2s ease, border-color 0.2s ease;
+}
+.boton-iniciar:hover, .boton-iniciar:focus{
+    background-color: #041A86 !important;
+    border: 2px solid #2D64E3;
+    color: white;
+}
+
+.text-registro{
+    color: #2D64E3;
+    font-weight: bold;
+}
+
+
+@media (min-width: 667px) {
+  .logo-img {
+    width: 150px;
+  }
+}
+@media (min-width: 768px) {
+  .logo-img {
+    width: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo-img {
+    width: 250px;
+  }
+}
