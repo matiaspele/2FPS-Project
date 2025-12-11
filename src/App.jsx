@@ -1,11 +1,14 @@
+import { BrowserRouter} from "react-router-dom";
+import RoutesPrincipal from "./routes/RoutesPrincipal";
 import Header from "./components/Header"
 
 const App = () => {
   return (
-    <div>
+    <BrowserRouter>
+      <RoutesPrincipal />
       <Header/>
-    </div>
-  )
-}
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
