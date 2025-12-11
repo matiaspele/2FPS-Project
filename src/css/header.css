@@ -1,0 +1,149 @@
+/*&FONDO TRIÁNGULO*/
+.triangulo {
+    position: absolute;
+    inset: 0;
+    background: #041A86;
+    clip-path: polygon(0 0, 60% 0, 0 90%);
+    z-index: -1;
+}
+
+/*&CONTENEDOR GENERAL*/
+.contenedor {
+    position: relative;
+    
+}
+
+/*&CONTENEDOR DE LOS TÍTULOS*/
+
+.contenedor-titulos {
+    position: relative;
+      margin-top: 50px;
+}
+
+/*&TÍTULOS*/
+
+.titulo {
+    position: relative;
+    color: #FFF5F5;
+    font-size: 100px;
+    font-weight: bold;
+  
+}
+
+.titulo-borde {
+   
+    position: absolute;
+    top: 8px;
+    left: -5px;
+    font-size: 100px;
+    font-weight: bold;
+    z-index: -1;
+    background-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+}
+
+/*&SUBTÍTULO*/
+
+.subtitulo {
+    color: #747474;
+    font-size: 18px;
+    text-align: center;
+    width: 300px;
+}
+
+
+.imagen {
+    position: absolute;
+    width: 200px;
+    top: 170px;
+    animation: levitar 3s ease-in-out infinite;
+}
+
+.sombra {
+    position: absolute;
+    width: 150px;
+    top:450px;
+    height: 10px;
+    background: #3a3a3a;
+    filter: blur(15px);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+@keyframes levitar {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media  (min-width: 768px) {
+    .titulo{
+          font-size: 200px;
+    }
+    .titulo-borde {
+    top: 9px;
+    left: -6px;
+    font-size: 200px;
+
+}
+.subtitulo {
+    font-size: 23px;
+    width: 100%;
+}
+
+.imagen {
+    width: 300px;
+    top: 250px;
+    animation: levitar 3s ease-in-out infinite;
+}
+.sombra {
+    position: absolute;
+    width: 200px;
+    top:680px;
+    height: 20px;
+}
+}
+
+@media (min-width: 1024px){
+    .titulo{
+    left: 300px;
+    top: 150px;
+    font-size: 220px;
+}
+
+.titulo-borde{
+    left: 290px;
+    top: 155px;
+    font-size: 220px;
+}
+
+.subtitulo{
+    position: absolute;
+    left: 200px;
+    top: 390px;
+}
+
+.imagen {
+    position: absolute;
+    left: 100px;
+    top: -10px;
+    width: 510px;
+
+}
+
+.sombra {
+    top: 670px;
+    left: 250px;
+    width: 260px;
+    height: 20px;
+
+}
+    
+}
