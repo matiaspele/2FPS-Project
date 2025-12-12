@@ -23,13 +23,6 @@ const{
   const admin = [
     {
       id: 1,
-      correo: "admin@gmail.com",
-      password: "123456",
-      rol: "admin",
-      nombre: "Luis",
-    },
-    {
-      id: 2,
       correo: "admin2@gmail.com",
       password: "123456",
       rol: "admin",
@@ -38,13 +31,14 @@ const{
   ];
 
   const guardarUsuario = (data) => {
-    if (data.correo && formVadataue.password) {
+    if (data.correo && data.password) {
+      
       const usuarioEncontrado = admin.find(
         (u) =>
           u.correo === data.correo && u.password === data.password
       );
       if (usuarioEncontrado) {
-        logIn(data.correo, formValue.name)
+        logIn(data.correo, data.name)
         navigate("/");
       } else {
         alert("Usuario o contraseña incorrectos");
