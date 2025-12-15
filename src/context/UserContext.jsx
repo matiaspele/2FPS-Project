@@ -1,15 +1,26 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const UserContext = createContext(null);
 
 export const UserProvider = ({children}) => {
     const initialValue ={
-        correo: "invitado@gmail.com",
-        name: "Invitado",
+        correo: "",
+        name: "",
         isLogin: false,
     };
 
-    const [user, setUser] = useState(initialValue);
+    const [user, setUser] = useState(()=>{
+        const saved = localStorage.getItem("user");
+        return saved ? JSON.parse(saved) : initialValue;
+    });
+
+    useEffect(()=>{
+        if(user.isLogin){
+            localStorage.setItem("user", JSON.stringify(user));
+        } else {
+            localStorage.removeItem("user");
+        }
+    }, [user]);
 
     const logIn = (email,name) =>
         setUser({
@@ -17,7 +28,10 @@ export const UserProvider = ({children}) => {
             name,
             isLogin : true,
         });
-    const logOut = () => setUser(initialValue);
+    const logOut = () => {
+        setUser(initialValue);
+        localStorage.removeItem("user");
+    };
 
     const datos = {
         user,

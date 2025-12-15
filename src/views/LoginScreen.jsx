@@ -6,13 +6,13 @@ import wasd from "../assets/wasd.png";
 import "../css/login.css";
 
 const LoginScreen = () => {
-const{
-  register,
-  handleSubmit,
-  formState: {errors},
-}= useForm()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const {logIn, logOut} = useContext(UserContext);
+  const { logIn, logOut } = useContext(UserContext);
   const navigate = useNavigate();
 
   // useEffect(()=> {
@@ -23,13 +23,6 @@ const{
   const admin = [
     {
       id: 1,
-      correo: "admin@gmail.com",
-      password: "123456",
-      rol: "admin",
-      nombre: "Luis",
-    },
-    {
-      id: 2,
       correo: "admin2@gmail.com",
       password: "123456",
       rol: "admin",
@@ -38,19 +31,38 @@ const{
   ];
 
   const guardarUsuario = (data) => {
-    if (data.correo && formVadataue.password) {
-      const usuarioEncontrado = admin.find(
-        (u) =>
-          u.correo === data.correo && u.password === data.password
-      );
-      if (usuarioEncontrado) {
-        logIn(data.correo, formValue.name)
-        navigate("/");
-      } else {
-        alert("Usuario o contraseña incorrectos");
-      }
-    } else {
+    if (!data.correo || !data.password) {
       alert("Correo o password vacío");
+      return;
+    }
+
+    const usuariosLocal = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    const usuarioLocal = usuariosLocal.find(
+      (u) => u.correo === data.correo && u.password === data.password
+    );
+
+    const usuarioAdmin = admin.find(
+      (u) => u.correo === data.correo && u.password === data.password
+    );
+
+    if (usuarioLocal || usuarioAdmin) {
+      const usuarioActivo = usuarioLocal || usuarioAdmin;
+
+      logIn(usuarioActivo.correo, usuarioActivo.nombre);
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          correo: usuarioActivo.correo,
+          name: usuarioActivo.nombre,
+          isLogin: true,
+        })
+      );
+
+      navigate("/");
+    } else {
+      alert("Usuario o contraseña incorrectos");
     }
   };
 
@@ -70,15 +82,17 @@ const{
                 type="email"
                 className="form-control correo-icon input text-white"
                 placeholder="Correo electrónico"
-                {...register('correo', {
-                  required:"El correo el obligatorio",
+                {...register("correo", {
+                  required: "El correo el obligatorio",
                   pattern: {
-                    value:/^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    message: "No es un correo válido"
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "No es un correo válido",
                   },
                 })}
               />
-              {errors.correo && <p className="text-danger">{errors.correo.message}</p>}
+              {errors.correo && (
+                <p className="text-danger">{errors.correo.message}</p>
+              )}
             </div>
 
             <div className="mb-3">
@@ -86,7 +100,7 @@ const{
                 type="password"
                 className="form-control password-icon input text-white"
                 placeholder="Contraseña"
-                {...register('password',{
+                {...register("password", {
                   required: "La contraseña es obligatoria",
                   // pattern: {
                   //   value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/,
@@ -94,7 +108,9 @@ const{
                   // }
                 })}
               />
-              {errors.password && <p className="text-danger">{errors.password.message}</p>}
+              {errors.password && (
+                <p className="text-danger">{errors.password.message}</p>
+              )}
             </div>
 
             <div className="mb-3 d-grid">
@@ -102,7 +118,10 @@ const{
             </div>
 
             <p className="text-center text-white">
-              ¿No tienes cuenta? <a href=""><span className="text-registro">Regístrate</span></a>
+              ¿No tienes cuenta?{" "}
+              <a href="">
+                <span className="text-registro">Regístrate</span>
+              </a>
             </p>
           </form>
         </div>
