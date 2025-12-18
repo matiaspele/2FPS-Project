@@ -1,0 +1,46 @@
+
+.wasd-footer {
+    background-color: #000000 !important; 
+    color: #ffffff;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif; 
+}
+
+
+.footer-icon-invert {
+    filter: invert(1) brightness(1.5); 
+}
+
+
+.wasd-footer .text-white-50 {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/*  círculos redes sociales */
+.social-icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Efecto hover suave */
+.social-icon-circle:hover {
+    transform: scale(1.1); 
+    opacity: 0.9;
+}
+
+.social-instagram {
+    background-color: #ff3d6f; 
+}
+
+.social-google {
+    background-color: #ffc107; 
+}
+
+.lista-footer:hover{
+    transition: 0.5s;
+    opacity: 0.5;
+}
