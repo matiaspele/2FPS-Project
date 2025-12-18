@@ -1,19 +1,6 @@
 import { useState, useEffect } from "react";
 
-const ProductForm = ({ product, onSave,form,setForm }) => {
-  // const [form, setForm] = useState({
-  //   producto: "",
-  //   precio: "",
-  //   descripcion: "",
-  //   stock: "",
-  //   imagen: "",
-  // });
-
-  // useEffect(() => {
-  //   if (product) {
-  //     setForm(product);
-  //   }
-  // }, [product]);
+const ProductForm = ({ product, onSave,form,setForm, update}) => {
 
   const mostrarProducto = (id) => {
     console.log()
@@ -21,7 +8,9 @@ const ProductForm = ({ product, onSave,form,setForm }) => {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
       <div className="bg-white p-6 rounded w-96">
-        <h2 className="text-xl font-bold mb-4">Agregar producto</h2>
+      <h2 className="text-xl font-bold mb-4">
+        {update ? "Editar producto" : "Agregar producto"}
+      </h2>
         <input
           className="border p-2 w-full mb-2"
           placeholder="Imagen "
@@ -62,7 +51,7 @@ const ProductForm = ({ product, onSave,form,setForm }) => {
         <div className="flex justify-end gap-2">
           <button
             className="px-3 btn btn-primary py-1 text-white m-2"
-            onClick={() => onSave(form)}
+            onClick={() => {onSave(form); update= false }}
           >
             Guardar
           </button>

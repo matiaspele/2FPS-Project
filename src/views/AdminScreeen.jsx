@@ -2,38 +2,28 @@ import { useEffect, useState } from "react";
 import "../css/admin.css";
 import ProductForm from "../components/ProductForm";
 
+
+
 const AdminScreen = () => {
-  const listProductos = [
-    {
-      id: 1,
-      producto: "Mouse logitech",
-      precio: "$100",
-      descripcion:
-        "Diseño simétrico y ambidiestro con botones laterales magnéticos personalizables; memoria interna para guardar configuraciones; compatible con el software Logitech G HUB para personalización avanzada.",
-      stock: "10",
-      imagen:
-        "https://acdn-us.mitiendanube.com/stores/005/542/994/products/ms-scyroxv6-wh-2-e61b9e0c890152b09517450296034437-640-0.webp",
-    },
-    {
-      id: 2,
-      producto: "Mchose V9 PRO ",
-      precio: "$130",
-      descripcion:
-        "Disfrute de una calidad de sonido nítida y rica. El diafragma de biocelulosa de cada altavoz garantiza una experiencia de audio equilibrada e inmersiva.",
-      stock: "5",
-      imagen:
-        "https://acdn-us.mitiendanube.com/stores/005/542/994/products/mchose-v9-pv-af88c8708c4b9ace6e17659237565095-1024-1024.webp",
-    },
-  ];
+  const formInicial = {
+    producto: "",
+    precio: "",
+    descripcion: "",
+    stock: "",
+    imagen: "",
+  };
 
   const [products, setProducts] = useState([]);
-   const [form, setForm] = useState({
+  const [update, setUpdate] = useState(false);
+  const [idupdate, setIdupdate] = useState(null);
+
+  const [form, setForm] = useState({
       producto: "",
       precio: "",
       descripcion: "",
       stock: "",
       imagen: "",
-    });
+  });
 
   useEffect(() => {
     const guardarProductos = JSON.parse(localStorage.getItem("products"));
@@ -47,12 +37,26 @@ const AdminScreen = () => {
   }, [products]);
 
   const agregarProducto = (nuevoPrduct) => {
-    setProducts([...products, { ...nuevoPrduct, id: Date.now() }]);
+    if (update) {
+      setProducts(
+        products.map((p) =>
+          p.id === idupdate ? { ...nuevoPrduct, id: idupdate} : p
+        )
+      );
+    } else{
+    setProducts([...products, { ...nuevoPrduct, id: Date.now() }]);}
+  
+    setForm(formInicial);
+    setUpdate(false);
+    setIdupdate(null);
   };
 
   const actualizarProducto = (producto) => {
-    setForm(producto)
+    setForm(producto);
+    setUpdate(true);
+    setIdupdate(producto.id);
   };
+
   const eliminarProducto = (id) => {
     setProducts(products.filter((product) => product.id !== id));
   };
@@ -61,15 +65,14 @@ const AdminScreen = () => {
     <div className="container margen bg-dark">
       <h1 className="mb-4 fw-bold text-white">Panel de Administración</h1>
       <div className="table-responsive">
-          {actualizarProducto && (
-        <ProductForm
-        form={form}
-        setForm={setForm}
-          products={actualizarProducto}
-          onSave={agregarProducto}
-          onCancel={() => actualizarProducto(null)}
-        />
-      )}
+          {(
+            <ProductForm
+              form={form}
+              setForm={setForm}
+              onSave={agregarProducto}
+              update={update}
+            />
+          )}
         <table className="table table-bordered table-hover align-middle mt-5">
           <thead className="table-dark ">
             <tr >
