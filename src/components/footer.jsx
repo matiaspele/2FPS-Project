@@ -11,6 +11,7 @@ import supportIcon from '../assets/24hours.png';
 import wasdLogo from '../assets/wasd.png';
 import instagramIcon from '../assets/instagram.png';
 import googleIcon from '../assets/icons8-logo-de-google-96.png';
+import whatsappIcon from '../assets/whatsapp.png';
 
 const Footer = () => {
   return (
@@ -131,6 +132,15 @@ const Footer = () => {
                 className="social-icon-circle social-google"
               >
                  <img src={googleIcon} alt="Google" width="30" />
+              </a>
+
+               <a
+                href="https://whatsapp.com"
+                target="_blank"
+                rel="noreferrer"
+                className="social-icon-circle social-whatsapp"
+              >
+                 <img src={whatsappIcon} alt="whatsapp" width="32" />
               </a>
 
             </div>

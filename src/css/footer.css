@@ -1,6 +1,6 @@
 
 .wasd-footer {
-    background-color: #000000 !important; 
+    background-color: #161515 !important; 
     color: #ffffff;
     font-family: 'Poppins', system-ui, -apple-system, sans-serif; 
 }
@@ -38,6 +38,10 @@
 
 .social-google {
     background-color: #ffc107; 
+}
+
+.social-whatsapp {
+    background-color: #13be2a; 
 }
 
 .lista-footer{
