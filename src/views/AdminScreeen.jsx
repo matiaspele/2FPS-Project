@@ -27,10 +27,19 @@ const AdminScreen = () => {
   ];
 
   const [products, setProducts] = useState([]);
+   const [form, setForm] = useState({
+      producto: "",
+      precio: "",
+      descripcion: "",
+      stock: "",
+      imagen: "",
+    });
 
   useEffect(() => {
     const guardarProductos = JSON.parse(localStorage.getItem("products"));
-    setProducts(guardarProductos || listProductos);
+     if (guardarProductos && guardarProductos.length > 0 ){
+      setProducts(guardarProductos)
+     }
   }, []);
 
   useEffect(() => {
@@ -41,40 +50,29 @@ const AdminScreen = () => {
     setProducts([...products, { ...nuevoPrduct, id: Date.now() }]);
   };
 
-  const actualizarProducto = (actualizarProduct) => {
-    setProducts(
-      products.map((product) =>
-        product.id === actualizarProduct.id ? actualizarProduct : product
-      )
-    );
+  const actualizarProducto = (producto) => {
+    setForm(producto)
   };
   const eliminarProducto = (id) => {
     setProducts(products.filter((product) => product.id !== id));
   };
 
   return (
-    <div className="container margen">
+    <div className="container margen bg-dark">
       <h1 className="mb-4 fw-bold text-white">Panel de Administración</h1>
-
-      <button
-        className="btn btn-primary mb-3"
-        onClick={() =>
-          actualizarProducto({
-            producto: "",
-            precio: "",
-            descripcion: "",
-            stock: "",
-            imagen: "",
-          })
-        }
-      >
-        Agregar producto
-      </button>
-
       <div className="table-responsive">
-        <table className="table table-bordered table-hover align-middle">
-          <thead className="table-dark">
-            <tr>
+          {actualizarProducto && (
+        <ProductForm
+        form={form}
+        setForm={setForm}
+          products={actualizarProducto}
+          onSave={agregarProducto}
+          onCancel={() => actualizarProducto(null)}
+        />
+      )}
+        <table className="table table-bordered table-hover align-middle mt-5">
+          <thead className="table-dark ">
+            <tr >
               <th>Imagen</th>
               <th>Nombre</th>
               <th>Precio</th>
@@ -118,14 +116,6 @@ const AdminScreen = () => {
           </tbody>
         </table>
       </div>
-
-      {actualizarProducto && (
-        <ProductForm
-          products={actualizarProducto}
-          onSave={agregarProducto}
-          onCancel={() => actualizarProducto(null)}
-        />
-      )}
     </div>
   );
 };
