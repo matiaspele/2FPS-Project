@@ -40,6 +40,10 @@
     background-color: #ffc107; 
 }
 
+.lista-footer{
+    transition: 0.5s;
+}
+
 .lista-footer:hover{
     transition: 0.5s;
     opacity: 0.5;
