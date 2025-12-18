@@ -60,7 +60,7 @@ const Footer = () => {
             </div>
             
             <p className="small text-white-50">
-              Tienda Gamer de computación y videojuegos, ubicada en Tucumán. 
+              Tienda Gamer de computación, ubicada en Tucumán. 
               Contamos con variedad en  Mouse, 
               teclados mecánicos y componentes para que armes tu Pc a medida.
             </p>
@@ -76,14 +76,11 @@ const Footer = () => {
           <div className="col-12 col-md-3 mb-4">
             <h5 className="fw-bold mb-3">Información</h5>
             <ul className="list-unstyled">
-              <li className="mb-2"><Link to="#" className="text-decoration-none text-white lista-footer">Home</Link></li>
-              <li className="mb-2"><Link to="https://maps.app.goo.gl/56WfhzK5Br4McqYz6" className="text-decoration-none text-white lista-footer" target='blank_'>Ubicanos</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Mis Pedidos</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Arma tu Pc</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Términos y condiciones</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Promociones con tarjeta</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Outlet</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Botón de Arrepentimiento</Link></li>
+              <li className="mb-2"><Link to="#" className="text-decoration-none text-white lista-footer">Inicio</Link></li>
+              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Productos</Link></li>
+              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Sobre Nosotros</Link></li>
+              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Contacto</Link></li>
+                            {/* <li className="mb-2"><Link to="https://maps.app.goo.gl/56WfhzK5Br4McqYz6" className="text-decoration-none text-white lista-footer" target='blank_'>Ubicanos</Link></li> */}
             </ul>
           </div>
 
@@ -91,16 +88,9 @@ const Footer = () => {
           <div className="col-12 col-md-3 mb-4">
             <h5 className="fw-bold mb-3">Categorías</h5>
             <ul className="list-unstyled ">
-              <li className="mb-2"><Link id="#lista-footer" to="" className="text-decoration-none text-white lista-footer">Componentes de Pc</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Periféricos</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Videojuegos</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Monitores</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Notebooks</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Pc Armadas</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Sillas Gamer</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Tabletas Gráficas</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Almacenamiento</Link></li>
-              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Conectividad y Cables</Link></li>
+              <li className="mb-2"><Link id="#lista-footer" to="" className="text-decoration-none text-white lista-footer">Teclados</Link></li>
+              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Auriculares</Link></li>
+              <li className="mb-2"><Link to="" className="text-decoration-none text-white lista-footer">Mouses</Link></li>
             </ul>
           </div>
 
