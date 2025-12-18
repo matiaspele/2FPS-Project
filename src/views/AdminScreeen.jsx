@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import "../css/admin.css";
 import ProductForm from "../components/ProductForm";
 
-
-
 const AdminScreen = () => {
   const formInicial = {
     producto: "",
@@ -18,18 +16,18 @@ const AdminScreen = () => {
   const [idupdate, setIdupdate] = useState(null);
 
   const [form, setForm] = useState({
-      producto: "",
-      precio: "",
-      descripcion: "",
-      stock: "",
-      imagen: "",
+    producto: "",
+    precio: "",
+    descripcion: "",
+    stock: "",
+    imagen: "",
   });
 
   useEffect(() => {
     const guardarProductos = JSON.parse(localStorage.getItem("products"));
-     if (guardarProductos && guardarProductos.length > 0 ){
-      setProducts(guardarProductos)
-     }
+    if (guardarProductos && guardarProductos.length > 0) {
+      setProducts(guardarProductos);
+    }
   }, []);
 
   useEffect(() => {
@@ -37,15 +35,24 @@ const AdminScreen = () => {
   }, [products]);
 
   const agregarProducto = (nuevoPrduct) => {
+    if (
+      nuevoPrduct.producto === "" ||
+      nuevoPrduct.precio === "" ||
+      nuevoPrduct.stock === ""
+    ) {
+      alert("Completa los campos obligatorios");
+      return;
+    }
     if (update) {
       setProducts(
         products.map((p) =>
-          p.id === idupdate ? { ...nuevoPrduct, id: idupdate} : p
+          p.id === idupdate ? { ...nuevoPrduct, id: idupdate } : p
         )
       );
-    } else{
-    setProducts([...products, { ...nuevoPrduct, id: Date.now() }]);}
-  
+    } else {
+      setProducts([...products, { ...nuevoPrduct, id: Date.now() }]);
+    }
+
     setForm(formInicial);
     setUpdate(false);
     setIdupdate(null);
@@ -58,24 +65,30 @@ const AdminScreen = () => {
   };
 
   const eliminarProducto = (id) => {
-    setProducts(products.filter((product) => product.id !== id));
+    const productoEncontrado = products.find((p) => p.id === id);
+    const validar = confirm(
+      `¿Estás seguro que quieres eliminar el priducto: ${productoEncontrado.producto} ?`
+    );
+    if (validar) {
+      setProducts(products.filter((product) => product.id !== id));
+    }
   };
 
   return (
     <div className="container margen bg-dark">
       <h1 className="mb-4 fw-bold text-white">Panel de Administración</h1>
       <div className="table-responsive">
-          {(
-            <ProductForm
-              form={form}
-              setForm={setForm}
-              onSave={agregarProducto}
-              update={update}
-            />
-          )}
+        {
+          <ProductForm
+            form={form}
+            setForm={setForm}
+            onSave={agregarProducto}
+            update={update}
+          />
+        }
         <table className="table table-bordered table-hover align-middle mt-5">
           <thead className="table-dark ">
-            <tr >
+            <tr>
               <th>Imagen</th>
               <th>Nombre</th>
               <th>Precio</th>

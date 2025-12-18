@@ -52,6 +52,7 @@ const ProductForm = ({ product, onSave,form,setForm, update}) => {
           <button
             className="px-3 btn btn-primary py-1 text-white m-2"
             onClick={() => {onSave(form); update= false }}
+            
           >
             Guardar
           </button>
