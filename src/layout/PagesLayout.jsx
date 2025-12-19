@@ -10,7 +10,7 @@ const PagesLayout = () => {
         <Outlet />
       </main>
       <footer>
-        {/* footer */}
+        <Footer/>
       </footer>
     </>
   );
