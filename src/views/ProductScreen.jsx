@@ -1,25 +1,60 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import "../css/product.css";
 
 const ProductScreen = () => {
-    const[productos,setProductos] = useState([]);
-    useEffect(()=>{
-        const data = localStorage.getItem("products");
-        setProductos(data ? JSON.parse(data) : []);
+  const [productos, setProductos] = useState([]);
 
-    }, [])
+  useEffect(() => {
+    const data = localStorage.getItem("products");
+    setProductos(data ? JSON.parse(data) : []);
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.add("triangle-bg");
+
+    return () => {
+      document.body.classList.remove("triangle-bg");
+    };
+  }, []);
+
   return (
-    <div>
-        {
-            productos.map((p)=> (
-                <div key={p.id}>
-                     <h1>{p.producto}</h1>
-                     <img src={p.imagen} alt="" />
-                </div>
-            ))
-        }
+    <div className="container mt-5">
+      <h1 className="text-white text-center pt-5 pb-3">Productos</h1>
 
+      <div className="row">
+        {productos.map((p) => (
+          <div
+            className="col-6 col-md-3 col-lg-2 mb-4 d-flex justify-content-center"
+            key={p.id}
+          >
+            <div className="card h-100 text-center w-100 card-hov">
+              {p.imagen && (
+                <img
+                  src={p.imagen}
+                  alt={p.producto}
+                  className="mx-auto mt-3"
+                  style={{
+                    width: "100px",
+                    height: "100px",
+                    objectFit: "cover",
+                  }}
+                />
+              )}
+
+              <div className="card-body p-2">
+                <h6 className="card-title">{p.producto}</h6>
+                <p className="card-text small">{p.descripcion}</p>
+              </div>
+
+              <div className="card-footer py-2">
+                <span className="fw-bold">Precio: ${p.precio}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductScreen
+export default ProductScreen;

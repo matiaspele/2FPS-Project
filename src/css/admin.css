@@ -24,3 +24,13 @@ body.bg-admin::before {
 .table {
   min-width: 700px;
 }
+.acciones{
+  width: 100px;
+}
+
+@media(max-width: 1023){
+  .eliminar{
+    padding: 50px;
+  }
+
+}
