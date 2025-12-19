@@ -102,39 +102,3 @@
   outline: none;
 }
 
-
-
-@media (max-width: 768px) {
-  .barra {
-    width: 90%;
-    height: 50px;
-  }
-
-  .links {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    flex-direction: column;
-    background: rgb(22, 22, 22);
-    width: 200px;
-    padding: 20px;
-    border-radius: 10px;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-  }
-
-  .links.open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-}
-
-
-@media (min-width: 768px) {
-  .hamburger-btn {
-    display: none;
-  }
-}
