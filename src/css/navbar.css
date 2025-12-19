@@ -1,32 +1,43 @@
-
-
-.nav-link-custom {
+.nav-link-custom,
+.nav-link-custom:visited,
+.nav-link-custom:active,
+.nav-link-custom:focus {
   font-size: 0.9rem;
   cursor: pointer;
   color: white;
   text-decoration: none;
-  transition: color .3s ease;
-} 
+  transition: color 0.3s ease;
+}
 
 .nav-link-custom:hover {
   color: #b4b3b3;
 }
-.icono{
-    color: white;
-} 
- /* ---------- Base ---------- */
 
-.barra{
-    backdrop-filter: blur(10px);
+
+.icono,
+.icono:visited,
+.icono:active,
+.icono:focus {
+  color: white;
+}
+
+
+.barra {
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.068);
-width: 80%;
+  background-color: rgba(0, 0, 255, 0.281);
+  width: 80%;
 }
-/* Ocultar menú en mobile */
+
+
+
 .links {
   transition: all 0.3s ease;
 }
+
+
 
 .hamburger-btn {
   background: none;
@@ -35,12 +46,70 @@ width: 80%;
   cursor: pointer;
 }
 
-/* ----------- MOBILE ----------- */
+.hamburger-btn:focus,
+.hamburger-btn:active {
+  outline: none;
+}
+
+
+
+.dropdown-menu-custom {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #161515;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 10;
+}
+
+.dropdown-item,
+.dropdown-item:visited,
+.dropdown-item:active,
+.dropdown-item:focus {
+  color: white;
+  text-decoration: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #a8a8a8;
+  color: white;
+}
+
+.logout-btn,
+.logout-btn:visited,
+.logout-btn:active,
+.logout-btn:focus {
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  padding: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.logout-btn:hover {
+  background: #222;
+}
+
+.logout-btn:focus {
+  outline: none;
+}
+
+
+
 @media (max-width: 768px) {
-    .barra{
-        width: 90%;
-        height: 50px;
-    }
+  .barra {
+    width: 90%;
+    height: 50px;
+  }
+
   .links {
     position: absolute;
     top: 70px;
@@ -53,7 +122,7 @@ width: 80%;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-10px);
-    transition: all .3s ease;
+    transition: all 0.3s ease;
   }
 
   .links.open {
@@ -63,7 +132,7 @@ width: 80%;
   }
 }
 
-/* Ocultar hamburguesa en desktop */
+
 @media (min-width: 768px) {
   .hamburger-btn {
     display: none;
