@@ -14,6 +14,7 @@ const AdminScreen = () => {
   const [products, setProducts] = useState([]);
   const [update, setUpdate] = useState(false);
   const [idupdate, setIdupdate] = useState(null);
+  const [search, setSearch] = useState("");
 
   const [form, setForm] = useState({
     producto: "",
@@ -22,6 +23,13 @@ const AdminScreen = () => {
     stock: "",
     imagen: "",
   });
+  useEffect(() => {
+    document.body.classList.add("bg-admin");
+
+    return () => {
+      document.body.classList.remove("bg-admin");
+    };
+  }, []);
 
   useEffect(() => {
     const guardarProductos = JSON.parse(localStorage.getItem("products"));
@@ -74,9 +82,13 @@ const AdminScreen = () => {
     }
   };
 
+  const productosFiltrados = products.filter((p) =>
+    p.producto.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
-    <div className="container margen bg-dark">
-      <h1 className="mb-4 fw-bold text-white">Panel de Administración</h1>
+    <div className="container margen">
+      <h1 className="m-5 fw-bold text-white pt-3">Panel de Administración</h1>
       <div className="table-responsive">
         {
           <ProductForm
@@ -86,51 +98,71 @@ const AdminScreen = () => {
             update={update}
           />
         }
-        <table className="table table-bordered table-hover align-middle mt-5">
-          <thead className="table-dark ">
-            <tr>
-              <th>Imagen</th>
-              <th>Nombre</th>
-              <th>Precio</th>
-              <th>Descripción</th>
-              <th>Stock</th>
-              <th className="text-center">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((p) => (
-              <tr key={p.id}>
-                <td>
-                  {p.imagen && (
-                    <img
-                      src={p.imagen}
-                      alt={p.producto}
-                      style={{ width: "60px", height: "auto" }}
-                    />
-                  )}
-                </td>
-                <td>{p.producto}</td>
-                <td>${p.precio}</td>
-                <td>{p.descripcion}</td>
-                <td>{p.stock}</td>
-                <td className="text-center">
-                  <button
-                    className="btn btn-sm btn-warning me-2"
-                    onClick={() => actualizarProducto(p)}
-                  >
-                    Editar
-                  </button>
-                  <button
-                    className="btn btn-sm btn-danger"
-                    onClick={() => eliminarProducto(p.id)}
-                  >
-                    Eliminar
-                  </button>
-                </td>
+        <div className="table-responsive">
+          <div className="d-flex justify-content-between align-items-center flex-wrap mb-3">
+            <h2 className="fw-bold text-white m-3">Productos agregados</h2>
+
+            <div className="col-12 col-md-4">
+              <div className="input-group">
+                <form class="d-flex" role="search">
+                  <input
+                    class="form-control me-2 bg-dark text-white"
+                    type="search"
+                    placeholder="Buscar producto.."
+                    aria-label="Search"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                  <span className="input-group-text btn btn-outline-primary">
+                    <i className="bi bi-search"></i>
+                  </span>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <table className="table table-bordered table-hover align-middle mt-5">
+            <thead className="table-dark p-3">
+              <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>Stock</th>
+                <th className="text-center">Acciones</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {productosFiltrados.map((p) => (
+                <tr key={p.id}>
+                  <td className="text-center align-middle">
+                    {p.imagen && (
+                      <img
+                        src={p.imagen}
+                        alt={p.producto}
+                        style={{ width: "100px", height: "auto" }}
+                      />
+                    )}
+                  </td>
+                  <td>{p.producto}</td>
+                  <td>${p.precio}</td>
+                  <td>{p.descripcion}</td>
+                  <td>{p.stock}</td>
+                  <td className="text-center">
+                    <button
+                      className="btn btn-sm btn-warning bi bi-pencil-square me-2"
+                      onClick={() => actualizarProducto(p)}
+                    ></button>
+                    <button
+                      className="btn btn-sm btn-danger bi bi-trash3"
+                      onClick={() => eliminarProducto(p.id)}
+                    ></button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

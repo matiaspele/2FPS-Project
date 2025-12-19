@@ -6,9 +6,10 @@ const ProductForm = ({ product, onSave,form,setForm, update}) => {
     console.log()
   };
   return (
+  
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-      <div className="bg-white p-6 rounded w-96">
-      <h2 className="text-xl font-bold mb-4">
+      <div className="bg-white p-6 rounded w-96 p-3">
+      <h2 className="text-xl font-bold p-3 text-center">
         {update ? "Editar producto" : "Agregar producto"}
       </h2>
         <input
