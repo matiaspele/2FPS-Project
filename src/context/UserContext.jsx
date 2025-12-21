@@ -1,42 +1,33 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
-export const UserContext = createContext(null);
+export const UserContext = createContext();
 
-export const UserProvider = ({children}) => {
-    const initialValue ={
-        correo: "",
-        name: "",
-        isLogin: false,
-    };
+export const UserProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
 
-    const [user, setUser] = useState(()=>{
-        const saved = localStorage.getItem("user");
-        return saved ? JSON.parse(saved) : initialValue;
-    });
 
-    useEffect(()=>{
-        if(user.isLogin){
-            localStorage.setItem("user", JSON.stringify(user));
-        } else {
-            localStorage.removeItem("user");
-        }
-    }, [user]);
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser?.isLogin) {
+      setUser(storedUser);
+    }
+  }, []);
 
-    const logIn = (email,name) =>
-        setUser({
-            correo: email,
-            name,
-            isLogin : true,
-        });
-    const logOut = () => {
-        setUser(initialValue);
-        localStorage.removeItem("user");
-    };
 
-    const datos = {
-        user,
-        logIn,
-        logOut
-    };
-    return <UserContext.Provider value={datos}>{children}</UserContext.Provider>
-}
+  const logIn = (userData) => {
+    setUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData));
+  };
+
+ 
+  const logOut = () => {
+    setUser(null);
+    localStorage.removeItem("user");
+  };
+
+  return (
+    <UserContext.Provider value={{ user, logIn, logOut }}>
+      {children}
+    </UserContext.Provider>
+  );
+};

@@ -12,13 +12,8 @@ const LoginScreen = () => {
     formState: { errors },
   } = useForm();
 
-  const { logIn, logOut } = useContext(UserContext);
+  const { logIn } = useContext(UserContext);
   const navigate = useNavigate();
-
-  // useEffect(()=> {
-  //   localStorage.removeItem("user");
-  //   logOut()
-  // }, [])
 
   const admin = [
     {
@@ -32,7 +27,7 @@ const LoginScreen = () => {
 
   const guardarUsuario = (data) => {
     if (!data.correo || !data.password) {
-      alert("Correo o password vacío");
+      alert("Correo o contraseña vacíos");
       return;
     }
 
@@ -46,24 +41,23 @@ const LoginScreen = () => {
       (u) => u.correo === data.correo && u.password === data.password
     );
 
-    if (usuarioLocal || usuarioAdmin) {
-      const usuarioActivo = usuarioLocal || usuarioAdmin;
-
-      logIn(usuarioActivo.correo, usuarioActivo.nombre);
-
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          correo: usuarioActivo.correo,
-          name: usuarioActivo.nombre,
-          isLogin: true,
-        })
-      );
-
-      navigate("/");
-    } else {
+    if (!usuarioLocal && !usuarioAdmin) {
       alert("Usuario o contraseña incorrectos");
+      return;
     }
+
+    const usuarioActivo = usuarioLocal || usuarioAdmin;
+
+    const userData = {
+      correo: usuarioActivo.correo,
+      name: usuarioActivo.nombre,
+      rol: usuarioAdmin ? "admin" : "user",
+      isLogin: true,
+    };
+
+    logIn(userData);
+
+    navigate(userData.rol === "admin" ? "/admin" : "/");
   };
 
   return (
