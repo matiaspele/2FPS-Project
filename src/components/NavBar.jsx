@@ -21,6 +21,8 @@ const NavBar = () => {
 
   return (
     <nav className="position-fixed top-0 start-50 translate-middle-x mt-2 barra py-3 px-4 d-flex align-items-center z-3">
+      
+      {/* BOTÓN HAMBURGUESA */}
       <button
         className="hamburger-btn d-md-none me-3"
         onClick={() => setOpen(!open)}
@@ -28,7 +30,8 @@ const NavBar = () => {
         <i className={`bi ${open ? "bi-x" : "bi-list"} fs-1`}></i>
       </button>
 
-      <div className={`links d-flex gap-4 ${open ? "open" : ""}`}>
+      {/* LINKS */}
+      <div className={`links ${open ? "open" : ""}`}>
         <Link
           className="nav-link-custom"
           to={isAdmin ? "/admin" : "/"}
@@ -39,7 +42,7 @@ const NavBar = () => {
 
         <Link
           className="nav-link-custom"
-          to="/productos"
+          to="/producto"
           onClick={() => setOpen(false)}
         >
           Productos
@@ -54,6 +57,7 @@ const NavBar = () => {
             >
               Sobre Nosotros
             </Link>
+
             <Link
               className="nav-link-custom"
               to="/contacto"
@@ -65,6 +69,7 @@ const NavBar = () => {
         )}
       </div>
 
+      {/* ICONOS DERECHA */}
       <div className="ms-auto d-flex gap-3 position-relative">
         {!isAdmin && (
           <Link to="/carrito">
@@ -90,6 +95,7 @@ const NavBar = () => {
                   >
                     Iniciar sesión
                   </Link>
+
                   <Link
                     to="/register"
                     className="dropdown-item"
@@ -99,14 +105,12 @@ const NavBar = () => {
                   </Link>
                 </>
               ) : (
-                <>
-                  <button
-                    className="dropdown-item logout-btn"
-                    onClick={handleLogout}
-                  >
-                    Cerrar sesión
-                  </button>
-                </>
+                <button
+                  className="dropdown-item logout-btn"
+                  onClick={handleLogout}
+                >
+                  Cerrar sesión
+                </button>
               )}
             </div>
           )}
