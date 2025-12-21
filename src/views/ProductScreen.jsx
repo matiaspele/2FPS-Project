@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../css/product.css";
+import { Link } from "react-router-dom";
 
 const ProductScreen = () => {
   const [productos, setProductos] = useState([]);
@@ -43,11 +44,16 @@ const ProductScreen = () => {
 
               <div className="card-body p-2">
                 <h6 className="card-title">{p.producto}</h6>
-                <p className="card-text small">{p.descripcion}</p>
               </div>
 
               <div className="card-footer py-2">
                 <span className="fw-bold">Precio: ${p.precio}</span>
+                <Link
+                  to={`/producto/${p.id}`}
+                  className="btn btn-outline-primary btn-sm w-100"
+                >
+                  Ver detalle
+                </Link>
               </div>
             </div>
           </div>
