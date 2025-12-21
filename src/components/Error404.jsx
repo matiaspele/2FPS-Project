@@ -7,12 +7,12 @@ import '../css/Error404.css';
 
 import mouseImage from '../assets/mousegamer.png';
 import bgVector from '../assets/Vector.png'; 
+import { Link as Linkerror404 } from 'react-router-dom';
 
 const Error404 = () => {
   return (
     
     <div className="error-container d-flex justify-content-center align-items-center w-100">
-      
       
       <img 
         src={bgVector} 
@@ -38,10 +38,14 @@ const Error404 = () => {
 
         <div className="text-center mt-3">
           <p className="error-text">not found :(</p>
-          
-          <button className="btn btn-outline-light mt-4 rounded-pill px-5 py-2 fw-bold">
+                 
+         <Linkerror404 
+            to="/" 
+            className="btn btn-outline-light mt-4 rounded-pill px-5 py-2 fw-bold"
+          >
             Volver al Inicio
-          </button>
+          </Linkerror404>
+          
         </div>
 
       </div>

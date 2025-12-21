@@ -6,12 +6,17 @@ import LoginScreen from "../views/LoginScreen";
 import HomeScreen from "../views/HomeScreen";
 import RegisterScreen from "../views/RegisterScreen";
 import AdminScreen from "../views/AdminScreeen";
+import ProductScreen from "../views/ProductScreen";
+import Error404 from "../components/Error404"
+
 
 const RoutesPrincipal = () => {
   const { user } = useContext(UserContext);
 
   return (
     <Routes>
+    <Route  index element={<HomeScreen/>}/>
+
       <Route
         index
         element={
@@ -32,6 +37,10 @@ const RoutesPrincipal = () => {
           user?.rol === "admin" ? <AdminScreen /> : <Navigate to="/" replace />
         }
       />
+
+        <Route path="admin" element={<AdminScreen/>}/>
+        <Route path="producto" element={<ProductScreen/>}/>
+       <Route path="error404" element={<Error404/>}/>
     </Routes>
   );
 };
