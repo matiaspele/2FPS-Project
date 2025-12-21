@@ -52,3 +52,33 @@
     transition: 0.5s;
     opacity: 0.5;
 }
+
+/* hover cartas  */
+
+.service-card {
+    transition: all 0.3s ease; 
+    cursor: pointer;
+    text-decoration: none; 
+    color: inherit; 
+    display: block; 
+}
+
+
+.service-card:hover {
+    background-color: #ffffff !important; 
+    border-color: #ffffff !important;  
+}
+
+
+.service-card:hover h5, 
+.service-card:hover small {
+    color: #000000 !important;
+}
+
+.service-card:hover .text-white-50 {
+    color: #000000 !important;
+}
+
+.service-card:hover .footer-icon-invert {
+    filter: invert(0) brightness(0); 
+}

@@ -12,6 +12,7 @@ import wasdLogo from '../assets/wasd.png';
 import instagramIcon from '../assets/instagram.png';
 import googleIcon from '../assets/icons8-logo-de-google-96.png';
 import whatsappIcon from '../assets/whatsapp.png';
+import { Link as LinkFooter } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -19,36 +20,43 @@ const Footer = () => {
     <footer className="wasd-footer mt-5 pt-5">
       <div className="container">
         
-        {/*Iconos de servicio*/}
-        <div className="row mb-5 text-center">
+{/*Targetas*/}
+<div className="row mb-5 text-center d-none d-md-flex">
           
-          {/* Envíos */}
-          <div className="col-12 col-lg-4 mb-4">
-            <div className="border border-secondary p-4 h-100 d-flex flex-column align-items-center justify-content-center rounded">
-              <img src={camionIcon} alt="Envíos" width="50" className="mb-3 footer-icon-invert" />
-              <h5 className="fw-bold">Realizamos envíos</h5>
-              <small className="text-white-50">Conoce nuestros medios de envíos disponibles</small>
-            </div>
-          </div>
+{/* Envíos */}
+  <div className="col-12 col-lg-4 mb-4">
+    <LinkFooter to="error404" className="text-decoration-none">
+      <div className="service-card border border-secondary p-4 h-100 d-flex flex-column align-items-center justify-content-center rounded">
+        <img src={camionIcon} alt="Envíos" width="50" className="mb-3 footer-icon-invert" />
+        <h5 className="fw-bold text-white">Realizamos envíos</h5>
+        <small className="text-white-50">Conoce nuestros medios de envíos disponibles</small>
+      </div>
+    </LinkFooter>
+  </div>
 
-          {/* Pagos */}
-          <div className="col-12 col-lg-4 mb-4">
-            <div className="border border-secondary p-4 h-100 d-flex flex-column align-items-center justify-content-center rounded">
-              <img src={tarjetaIcon} alt="Pagos" width="50" className="mb-3 footer-icon-invert" />
-              <h5 className="fw-bold">Paga tus compras aquí</h5>
-              <small className="text-white-50">Conoce nuestros medios de pago disponibles</small>
-            </div>
-          </div>
+{/* Pagos */}
+  <div className="col-12 col-lg-4 mb-4">
+    <LinkFooter to="error404" className="text-decoration-none">
+      <div className="service-card border border-secondary p-4 h-100 d-flex flex-column align-items-center justify-content-center rounded">
+        <img src={tarjetaIcon} alt="Pagos" width="50" className="mb-3 footer-icon-invert" />
+        <h5 className="fw-bold text-white">Paga tus compras aquí</h5>
+        <small className="text-white-50">Conoce nuestros medios de pago disponibles</small>
+      </div>
+    </LinkFooter>
+  </div>
 
-          {/*Soporte */}
-          <div className="col-12 col-lg-4 mb-4">
-            <div className="border border-secondary p-4 h-100 d-flex flex-column align-items-center justify-content-center rounded">
-              <img src={supportIcon} alt="Soporte 24hs" width="50" className="mb-3 footer-icon-invert" />
-              <h5 className="fw-bold">Soporte</h5>
-              <small className="text-white-50">Comunícate con nosotros</small>
-            </div>
-          </div>
-        </div>
+{/* Soporte */}
+  <div className="col-12 col-lg-4 mb-4">
+    <LinkFooter to="error404" className="text-decoration-none">
+      <div className="service-card border border-secondary p-4 h-100 d-flex flex-column align-items-center justify-content-center rounded">
+        <img src={supportIcon} alt="Soporte 24hs" width="50" className="mb-3 footer-icon-invert" />
+        <h5 className="fw-bold text-white">Soporte</h5>
+        <small className="text-white-50">Comunícate con nosotros</small>
+      </div>
+    </LinkFooter>
+  </div>
+
+</div>
 
         {/* SECCIÓN PRINCIPAL */}
         <div className="row">
@@ -95,7 +103,7 @@ const Footer = () => {
           </div>
 
           {/*  4 Newsletter */}
-          <div className="col-12 col-md-3 mb-4">
+          <div className="col-12 col-md-3 mb-4 ">
             <h5 className="fw-bold mb-3">Newsletter</h5>
             <p className="small text-white-50">Suscribite a nuestro Newsletter para enterarte de promociones</p>
             <form className="d-flex mb-4">
