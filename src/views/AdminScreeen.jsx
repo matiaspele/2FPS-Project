@@ -148,15 +148,18 @@ const AdminScreen = () => {
                   <td>${p.precio}</td>
                   <td>{p.descripcion}</td>
                   <td>{p.stock}</td>
-                  <td className="text-center">
-                    <button
-                      className="btn btn-sm btn-warning bi bi-pencil-square me-2"
-                      onClick={() => actualizarProducto(p)}
-                    ></button>
-                    <button
-                      className="btn btn-sm btn-danger bi bi-trash3"
-                      onClick={() => eliminarProducto(p.id)}
-                    ></button>
+                  <td className="text-center acciones">
+                    <div className="d-flex flex-column flex-lg-row gap-2 justify-content-center">
+                      <button
+                        className="btn btn-sm btn-warning bi bi-pencil-square"
+                        onClick={() => actualizarProducto(p)}
+                      ></button>
+
+                      <button
+                        className="btn btn-sm btn-danger bi bi-trash3 eliminar"
+                        onClick={() => eliminarProducto(p.id)}
+                      ></button>
+                    </div>
                   </td>
                 </tr>
               ))}
