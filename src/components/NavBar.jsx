@@ -100,15 +100,6 @@ const NavBar = () => {
                 </>
               ) : (
                 <>
-                  {!isAdmin && (
-                    <Link
-                      to="/perfil"
-                      className="dropdown-item"
-                      onClick={() => setOpenUserMenu(false)}
-                    >
-                      Mi perfil
-                    </Link>
-                  )}
                   <button
                     className="dropdown-item logout-btn"
                     onClick={handleLogout}
