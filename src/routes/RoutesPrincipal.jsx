@@ -5,12 +5,13 @@ import { UserContext } from "../context/UserContext";
 import LoginScreen from "../views/LoginScreen";
 import HomeScreen from "../views/HomeScreen";
 import RegisterScreen from "../views/RegisterScreen";
-import AdminScreen from "../views/AdminScreeen";
+import AdminScreeen from "../views/AdminScreeen";
 import ProductScreen from "../views/ProductScreen";
 import Error404 from "../components/Error404";
 import ProtectedRoute from "./ProtectedRoute";
 import AboutScreen from "../views/AboutScreen"
 import ProductDetailScreen from "../views/ProductDetailScreen";
+import PagesLayout from "../layout/PagesLayout";
 
 
 const RoutesPrincipal = () => {
@@ -28,16 +29,18 @@ const RoutesPrincipal = () => {
           )
         }
       />
-      <Route path="login" element={<LoginScreen />} />
-      <Route path="register" element={<RegisterScreen />} />
-      <Route path="sobrenosotros" element={<AboutScreen />} />
-      <Route path="/producto/:id" element={<ProductDetailScreen />} />
-        
+  
+        <Route path="login" element={<LoginScreen />} />
+        <Route path="register" element={<RegisterScreen />} />
+        <Route path="sobrenosotros" element={<AboutScreen />} />
+        <Route path="producto/:id" element={<ProductDetailScreen />} />
+        <Route path="*" element={<Error404 />} />
+      
       <Route
         path="admin"
         element={
           user?.rol === "admin" ? (
-            <AdminScreen />
+            <AdminScreeen />
           ) : (
             <Navigate to="/" replace />
           )
@@ -45,14 +48,14 @@ const RoutesPrincipal = () => {
       />
 
       <Route
-        path="/productos"
+        path="/producto"
         element={
           <ProtectedRoute>
             <ProductScreen />
           </ProtectedRoute>
         }
       />
-      <Route path="*" element={<Error404 />} />
+      
     </Routes>
   );
 };

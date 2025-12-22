@@ -7,20 +7,21 @@ const AboutScreen = () => {
   return (
     <div className="m-cont">
       <main className="main">
+        <h1 className="h1-about text-center">Conocenos</h1>
         <div className="containern1">
           <div>
-            <h1>Conocenos</h1>
+            
             <p>Somos un equipo de desarrollo formado en Rolling Code School. Este proyecto corresponde al trabajo final del Módulo 2, en el cual desarrollamos un e-commerce de periféricos, poniendo en práctica los conocimientos adquiridos a lo largo de la cursada.
             Durante el desarrollo aplicamos conceptos de maquetado web, diseño responsivo, lógica de programación y trabajo en equipo, utilizando herramientas y tecnologías modernas. El proyecto refleja nuestro compromiso con el aprendizaje, la mejora continua y la creación de soluciones funcionales orientadas a la experiencia del usuario.
             Este e-commerce representa un paso importante en nuestra formación como desarrolladores, consolidando las bases necesarias para afrontar proyectos más complejos en el futuro.</p>
           </div>
-        <img src="../public/compu.png" alt="Auriculares" />
+        <img src="../public/compu.png" className="img-about img-compu" alt="Computadora" />
       </div>
       <h2 className="h2">Conoce al equipo</h2>
         <div className="containern2">
-            <div className="card">
+            <div className="card-about">
               <div className="img-container">
-                <img src="../../public/Facu.png" alt="Facundo Vera" />
+                <img src="../../public/Facu.png" className="img-about" alt="Facundo Vera" />
               </div>
                 <h3>Facundo Vera</h3>
                 <div className="line"></div>
@@ -35,9 +36,9 @@ const AboutScreen = () => {
                   </a>
                 </div>
             </div>
-            <div className="card">
+            <div className="card-about">
               <div className="img-container">
-                <img src="../../public/Matias_Pelegrina.jpg" alt="Matías Pelegrina" />
+                <img src="../../public/Matias_Pelegrina.jpg" className="img-about" alt="Matías Pelegrina" />
               </div>
                 <h3>Matías Pelegrina</h3>
                 <div className="line"></div>
@@ -52,9 +53,9 @@ const AboutScreen = () => {
                   </a>
                 </div>
             </div>
-            <div className="card">
+            <div className="card-about">
               <div className="img-container">
-                <img src="../../public/Medina.jpeg" alt="Michael Medina" />
+                <img src="../../public/Medina.jpeg" className="img-about" alt="Michael Medina" />
               </div>
                 <h3>Michael Medina</h3>
                 <div className="line"></div>
@@ -69,9 +70,9 @@ const AboutScreen = () => {
                   </a>
                 </div>
             </div>
-            <div className="card">
+            <div className="card-about">
               <div className="img-container">
-                <img id="tdo" src="../../public/Celeste.jpeg" alt="Michael Medina" />
+                <img id="tdo" src="../../public/Celeste.jpeg" className="img-about" alt="Michael Medina" />
               </div>
                 <h3>Celeste Soto</h3>
                 <div className="line"></div>

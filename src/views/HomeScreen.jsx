@@ -5,6 +5,7 @@ const HomeScreen = () => {
   return (
     <div>
         <Header/>
+        <h2 className="text-white m-5">Productos destacados</h2>
         <HomeProducts/>
     </div>
   )

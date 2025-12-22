@@ -42,7 +42,7 @@ const HomeProducts = () => {
       </div>
 
 
-      <div className="row g-4 justify-content-center">
+      <div className="row g-4 justify-content-center mb-5">
         {segundos.map((p) => (
           <div key={p.id} className="col-6 col-md-3 col-lg-2 ">
             <div className="product-card text-center h-100">
