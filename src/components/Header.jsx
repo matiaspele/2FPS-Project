@@ -1,4 +1,5 @@
 import "../css/header.css";
+import Auricularesnegros from '../assets/Auricularesnegros.png';
 
 const Header = () => {
   return (
@@ -12,7 +13,7 @@ const Header = () => {
   </div>
 
       <img
-        src="../public/Auriculares-negros.png"
+        src={Auricularesnegros}
         alt="auriculares"
         className="imagen"
       />
