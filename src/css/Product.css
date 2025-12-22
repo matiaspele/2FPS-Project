@@ -2,7 +2,6 @@
 body.triangle-bg {
   background-color: #041A86;
   position: relative;
-  min-height: 100vh;
   overflow-x: hidden;
 }
 

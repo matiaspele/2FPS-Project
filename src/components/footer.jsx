@@ -17,7 +17,7 @@ import { Link as LinkFooter } from 'react-router-dom';
 const Footer = () => {
   return (
     
-    <footer className="wasd-footer mt-5 pt-5">
+    <footer className="wasd-footer pt-5">
       <div className="container">
         
 {/*Targetas*/}

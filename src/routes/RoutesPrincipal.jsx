@@ -10,6 +10,8 @@ import ProductScreen from "../views/ProductScreen";
 import Error404 from "../components/Error404";
 import ProtectedRoute from "./ProtectedRoute";
 import AboutScreen from "../views/AboutScreen"
+import ProductDetailScreen from "../views/ProductDetailScreen";
+
 
 const RoutesPrincipal = () => {
   const { user } = useContext(UserContext);
@@ -29,7 +31,8 @@ const RoutesPrincipal = () => {
       <Route path="login" element={<LoginScreen />} />
       <Route path="register" element={<RegisterScreen />} />
       <Route path="sobrenosotros" element={<AboutScreen />} />
-
+      <Route path="/producto/:id" element={<ProductDetailScreen />} />
+        
       <Route
         path="admin"
         element={
@@ -49,7 +52,6 @@ const RoutesPrincipal = () => {
           </ProtectedRoute>
         }
       />
-
       <Route path="*" element={<Error404 />} />
     </Routes>
   );
