@@ -1,21 +1,21 @@
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
 import RoutesPrincipal from "./routes/RoutesPrincipal";
-import NavBar from "./components/NavBar"
-
-
-
+import NavBar from "./components/NavBar";
+import Footer from "./components/footer"; 
 
 const App = () => {
   return (
-
     <BrowserRouter>
+      
       <NavBar />
+      
       <RoutesPrincipal />
-    </BrowserRouter>
+      
+      <Footer />
+
+    </BrowserRouter> 
+
   );
 }
 
-export default App
-
-
-
+export default App;
