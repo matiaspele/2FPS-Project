@@ -1,0 +1,171 @@
+.m-cont{
+    position: relative;
+    min-height: 100vh;
+    background-color: #000;
+    color: white;
+    overflow: hidden;
+    padding-bottom: 100px;
+}
+ 
+.main{
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    text-align: center;
+}
+
+h1{
+    font-size: 70px;
+}
+
+.containern1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 6px;
+    margin:  140px 0;
+    flex-wrap: wrap;
+    
+}
+
+.containern1 p{
+    max-width: 500px;
+}
+
+ img{
+    width: 500px;
+}
+
+.containern2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+
+
+.h2{
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 40px;
+}
+
+.card{
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    margin: 16px auto;
+    background-color: #333;
+    color: #000000;
+    gap: 15px;
+    object-fit: cover;
+    text-align: center;
+    color: #fff;
+}
+
+.img-container{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    margin: auto;
+
+}
+
+#tdo{
+    object-position: top;
+    transform: scale(1.2);
+}
+
+.img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.line{
+    color: #eee;
+    background-color: #555;
+    height: 1px;
+}
+
+.incont{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+}
+
+.tri {
+  position: absolute;
+  bottom: 0;
+  background-color: #050a44;
+  z-index: 0;
+  width: 150px;
+  height: 100px;
+  transition: all 0.3s ease;
+}
+
+.i-tri {
+  left: 0;
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+
+.d-tri {
+  right: 0;
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+@media screen and (min-width: 481px) {
+  .tri {
+    width: 200px;
+    height: 140px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .tri {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .tri {
+    width: 450px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 600px){
+    .containern1{
+        font-size: 15px;
+    }
+
+    .containern1 img{
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 430px){
+    .containern1 div p{
+        max-width: 300px;
+    }
+
+    h1{
+        font-size: 40px;
+    }
+
+    .h2{
+        font-size: 20px;
+    }
+}
