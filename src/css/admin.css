@@ -14,6 +14,7 @@ body.bg-admin::before {
 }
 .margen{
     margin-top: 100px;
+    margin-bottom: 100px;
     background-color: rgba(31, 28, 28, 0.952);
     border-radius: 30px;
 }
