@@ -113,7 +113,7 @@ const LoginScreen = () => {
 
             <p className="text-center text-white">
               ¿No tienes cuenta?{" "}
-              <a href="">
+              <a href="/register">
                 <span className="text-registro">Regístrate</span>
               </a>
             </p>
