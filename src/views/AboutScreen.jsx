@@ -1,6 +1,14 @@
 import "../css/about.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import Facu from '../assets/Facu.png';
+import Celeste from '../assets/Celeste.jpeg';
+import MatiasPelegrina from '../assets/MatiasPelegrina.jpg';
+import Medina from '../assets/Medina.jpeg';
+import compu from '../assets/compu.png';
+
+
+
 const AboutScreen = () => {
 
 
@@ -15,13 +23,13 @@ const AboutScreen = () => {
             Durante el desarrollo aplicamos conceptos de maquetado web, diseño responsivo, lógica de programación y trabajo en equipo, utilizando herramientas y tecnologías modernas. El proyecto refleja nuestro compromiso con el aprendizaje, la mejora continua y la creación de soluciones funcionales orientadas a la experiencia del usuario.
             Este e-commerce representa un paso importante en nuestra formación como desarrolladores, consolidando las bases necesarias para afrontar proyectos más complejos en el futuro.</p>
           </div>
-        <img src="../public/compu.png" className="img-about img-compu" alt="Computadora" />
+        <img src={compu} className="img-about img-compu" alt="Computadora" />
       </div>
       <h2 className="h2">Conoce al equipo</h2>
         <div className="containern2">
             <div className="card-about">
               <div className="img-container">
-                <img src="../../public/Facu.png" className="img-about" alt="Facundo Vera" />
+                <img src={Facu} className="img-about" alt="Facundo Vera" />
               </div>
                 <h3>Facundo Vera</h3>
                 <div className="line"></div>
@@ -38,7 +46,7 @@ const AboutScreen = () => {
             </div>
             <div className="card-about">
               <div className="img-container">
-                <img src="../../public/Matias_Pelegrina.jpg" className="img-about" alt="Matías Pelegrina" />
+                <img src={MatiasPelegrina} className="img-about" alt="Matías Pelegrina" />
               </div>
                 <h3>Matías Pelegrina</h3>
                 <div className="line"></div>
@@ -55,7 +63,7 @@ const AboutScreen = () => {
             </div>
             <div className="card-about">
               <div className="img-container">
-                <img src="../../public/Medina.jpeg" className="img-about" alt="Michael Medina" />
+                <img src={Medina} className="img-about" alt="Michael Medina" />
               </div>
                 <h3>Michael Medina</h3>
                 <div className="line"></div>
@@ -72,7 +80,7 @@ const AboutScreen = () => {
             </div>
             <div className="card-about">
               <div className="img-container">
-                <img id="tdo" src="../../public/Celeste.jpeg" className="img-about" alt="Michael Medina" />
+                <img id="tdo" src={Celeste} className="img-about" alt="Michael Medina" />
               </div>
                 <h3>Celeste Soto</h3>
                 <div className="line"></div>

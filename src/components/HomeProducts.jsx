@@ -1,5 +1,6 @@
 import productos from "../db/data.js";
 import "../css/homeproducts.css";
+import teclado from '../assets/teclado.png';
 
 const HomeProducts = () => {
   const primeros = productos.slice(0, 4);
@@ -33,7 +34,7 @@ const HomeProducts = () => {
 
 
           <img
-            src="/teclado.png"
+            src={teclado}
             alt="Teclado"
             className="promo-img"
           />
